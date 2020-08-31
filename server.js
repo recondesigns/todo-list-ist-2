@@ -25,7 +25,6 @@ const connection = mongoose.connection
 connection.once('open', () => console.log(`Connected to dB.`))
 
 const usersRouter = require('./routes/users')
-const { readSync } = require('fs')
 app.use('/users', usersRouter)
 
 app.get("*", (req, res) => {
