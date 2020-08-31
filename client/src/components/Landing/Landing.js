@@ -100,8 +100,13 @@ export default function Landing() {
     }
 
     function logIn() {
-        axios.get(`http://localhost:8000/users`).then((res) => {
-            res.data.forEach((user => {
+        const url = `http://localhost:8000/users`
+        axios({
+            method: "get",
+            url: url,
+            responseType: "json"
+        }).then ((res) => {
+                res.data.forEach((user => {
                 const { name } = user
                 if (name.toLowerCase() === loginName.toLowerCase()) {
                     const { tasks, _id } = user
@@ -113,7 +118,22 @@ export default function Landing() {
                     setCurrentUser(updatedCurrentUser)
                 }
             }))
+            // console.log(res.data)
         })
+        // axios.get(`http://localhost:8000/users`).then((res) => {
+        //     res.data.forEach((user => {
+        //         const { name } = user
+        //         if (name.toLowerCase() === loginName.toLowerCase()) {
+        //             const { tasks, _id } = user
+        //             const updatedCurrentUser = {
+        //                 name: name,
+        //                 tasks: tasks,
+        //                 id: _id
+        //             }
+        //             setCurrentUser(updatedCurrentUser)
+        //         }
+        //     }))
+        // })
     }
 
     return (
