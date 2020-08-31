@@ -52,7 +52,7 @@ export default function Checkbox(props) {
         }
 
         function setContext() {
-            axios.get(`http://localhost:5000/users/${id}`).then((res) => {
+            axios.get(`http://localhost:8000/users/${id}`).then((res) => {
                 const {name, tasks, _id } = res.data
                 const newObj = {
                     name: name,
@@ -69,11 +69,11 @@ export default function Checkbox(props) {
             if (tasktitle.toLowerCase() === itemTitle) {
                 if (updatedUser.newTasks[i].completed === false) {
                     updatedUser.newTasks[i].completed = true
-                    axios.post(`http://localhost:5000/users/update/${userObjToSend.id}`, userObjToSend).then((res) => {
+                    axios.post(`http://localhost:8000/users/update/${userObjToSend.id}`, userObjToSend).then((res) => {
                     }).then(() => setContext())
                 } else if (updatedUser.newTasks[i].completed === true) {
                     updatedUser.newTasks[i].completed = false
-                    axios.post(`http://localhost:5000/users/update/${userObjToSend.id}`, userObjToSend).then((res) => {
+                    axios.post(`http://localhost:8000/users/update/${userObjToSend.id}`, userObjToSend).then((res) => {
                     }).then(() => setContext())
                 }
             }

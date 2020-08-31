@@ -100,7 +100,7 @@ export default function Landing() {
     }
 
     function logIn() {
-        axios.get(`http://localhost:5000/users`).then((res) => {
+        axios.get(`http://localhost:8000/users`).then((res) => {
             res.data.forEach((user => {
                 const { name } = user
                 if (name.toLowerCase() === loginName.toLowerCase()) {

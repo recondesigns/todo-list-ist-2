@@ -71,8 +71,8 @@ export default function AddTask(props) {
     function addNewTask() {
         updatedUserObj.tasks.push(newTaskObj)
 
-        axios.post(`http://localhost:5000/users/update/${userId}`, updatedUserObj ).then((res) => {
-            axios.get(`http://localhost:5000/users/${userId}`).then((res) => {
+        axios.post(`http://localhost:8000/users/update/${userId}`, updatedUserObj ).then((res) => {
+            axios.get(`http://localhost:8000/users/${userId}`).then((res) => {
                 setCurrentUser(res.data)
             })
         }) 

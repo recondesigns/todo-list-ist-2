@@ -24,7 +24,7 @@ export default function Delete(props) {
     const editTasks = tasks
 
     function getNewUser() {
-        axios.get(`http://localhost:5000/users/${id}`).then((res) => {
+        axios.get(`http://localhost:8000/users/${id}`).then((res) => {
             const { name, tasks, _id } = res.data
 
             const newObj = {
@@ -52,7 +52,7 @@ export default function Delete(props) {
             id: id
         }
 
-        axios.post(`http://localhost:5000/users/update/${id}`, updatedUser).then((res) => {
+        axios.post(`http://localhost:8000/users/update/${id}`, updatedUser).then((res) => {
             console.log(res.data)
         }).then(getNewUser)
     }
