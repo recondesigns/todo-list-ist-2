@@ -12,7 +12,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.static(path.join(__dirname, "client", "build")))
 
-const uri = process.env.ATLAS_URI || "mongodb://localhost:8000/users"
+const uri = process.env.ATLAS_URI || "mongodb+srv://localhost:8000/users"
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
 
 const connection = mongoose.connection
